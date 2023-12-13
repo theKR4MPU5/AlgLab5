@@ -87,7 +87,7 @@
                 Click="widthBtn_Click"/>
         <Button Grid.Row="4" 
                 x:Name="heightBtn" 
-                Content="Height" 
+                Content="Deep" 
                 HorizontalAlignment="Center" 
                 VerticalAlignment="Center" 
                 Width="120" Height="40" 

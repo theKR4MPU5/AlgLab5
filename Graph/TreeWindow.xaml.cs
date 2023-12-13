@@ -551,13 +551,9 @@ namespace AlgLab5
             foreach (var value in E) value.GetLine().Stroke = (Brush)(new BrushConverter().ConvertFrom("#9ED5C5"));
             foreach (var value in N) value.GetEllipse().Fill = Brushes.Orange;
             List<EdgeOst> ostTree = new List<EdgeOst>();
-            //неиспользованные ребра
             List<EdgeOst> notUsedE = new List<EdgeOst>(E);
-            //использованные вершины
             List<NodeOst> usedN = new List<NodeOst>();
-            //неиспользованные вершины
             List<NodeOst> notUsedN = new List<NodeOst>(connections.Where(x => x.Value.Count != 0).Select(x => x.Key).ToList());
-            //выбираем случайную начальную вершину
             Random rand = new Random();
             int randNum = rand.Next(0, notUsedN.Count);
             usedN.Add(notUsedN[randNum]);
@@ -610,15 +606,6 @@ namespace AlgLab5
                     notUsedN.Remove(tempNode);
                     tempNode.GetEllipse().Fill = Brushes.Maroon;
                     AddLoggerContentToCanvas($"Добавили узел {tempNode.numOfNode} в список использованных, удалили из списка неиспользованных");
-                    //foreach (var child in tempNode.grid.Children)
-                    //{
-                    //    if (child.GetType() == typeof(Ellipse))
-                    //    {
-                    //        Ellipse ellipse = (Ellipse)child;
-                    //        ellipse.Fill = Brushes.;
-                    //    }
-                    //}
-                    //заносим новую вершину в список использованных и удаляем ее из списка неиспользованных
                     ostTree.Add(minEdge);
                     notUsedE.Remove(minEdge);
                     minEdge.GetLine().Stroke = Brushes.Green;
